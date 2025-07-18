@@ -44,24 +44,6 @@ pip3 install -r requirements.txt
 - Cisco FDM with REST API access
 - Network connectivity to FDM management interface
 
-### File Structure
-```
-FDM Object Adder/
-├── fdm_object_adder.py     # Main script
-├── url.txt                 # URL objects to create
-├── ip.txt                  # IP/Network objects to create
-├── requirements.txt        # Python dependencies
-├── LICENSE                 # MIT License
-├── README.md               # This file
-├── SECURITY.md             # Security policy and vulnerability reporting
-├── CONTRIBUTING.md         # Contributing guidelines
-└── .github/                # GitHub automation
-    ├── dependabot.yml      # Automated dependency updates
-    └── workflows/          # GitHub Actions CI/CD
-        ├── ci.yml          # Continuous integration tests
-        └── codeql.yml      # Security code analysis
-```
-
 ## Configuration
 
 ### Input Files
