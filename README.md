@@ -1,5 +1,10 @@
 # FDM Object Adder
 
+[![CI Tests](https://github.com/anvpatha/fdm-object-adder/actions/workflows/ci.yml/badge.svg)](https://github.com/anvpatha/fdm-object-adder/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/anvpatha/fdm-object-adder/actions/workflows/codeql.yml/badge.svg)](https://github.com/anvpatha/fdm-object-adder/actions/workflows/codeql.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+
 This tool helps in bulk creation of URL and Network objects in Cisco Firepower Device Manager (FDM) through its REST API. A bulk object creation utility is usually a requirement to avoid manual GUI-based object creation which is time-consuming and error-prone when dealing with multiple objects.
 
 **Technology Stack:** Python 3.x, Cisco FDM REST API  
@@ -44,12 +49,19 @@ pip3 install -r requirements.txt
 ### File Structure
 ```
 FDM Object Adder/
-├── fdm_object_adder.py # Main script
-├── url.txt             # URL objects to create
-├── ip.txt              # IP/Network objects to create
-├── requirements.txt    # Python dependencies
-├── fdm/                # Virtual environment (if using)
-└── README.md           # This file
+├── fdm_object_adder.py     # Main script
+├── url.txt                 # URL objects to create
+├── ip.txt                  # IP/Network objects to create
+├── requirements.txt        # Python dependencies
+├── LICENSE                 # MIT License
+├── README.md               # This file
+├── SECURITY.md             # Security policy and vulnerability reporting
+├── CONTRIBUTING.md         # Contributing guidelines
+└── .github/                # GitHub automation
+    ├── dependabot.yml      # Automated dependency updates
+    └── workflows/          # GitHub Actions CI/CD
+        ├── ci.yml          # Continuous integration tests
+        └── codeql.yml      # Security code analysis
 ```
 
 ## Configuration
@@ -193,20 +205,78 @@ If you encounter issues:
 2. **Verify FDM connectivity** by accessing the web interface
 3. **Confirm file format** - ensure one entry per line in text files
 
-## Security Considerations
+## Security
 
-- **Credentials:** The script prompts for passwords securely and doesn't store them
-- **HTTPS:** All API communication uses HTTPS encryption
+This project follows security best practices:
+
+- **Automated Security Scanning:** CodeQL analysis runs on every pull request
+- **Dependency Updates:** Dependabot automatically updates dependencies
+- **Vulnerability Reporting:** See [SECURITY.md](SECURITY.md) for reporting security issues
+- **Secure Coding:** Input validation and secure API communication
+
+### Security Features
+
+- **HTTPS Only:** All API communication uses HTTPS encryption
 - **Input Validation:** URLs and IP addresses are sanitized before processing
-- **Error Handling:** Sensitive information is not exposed in error messages
+- **No Credential Storage:** Passwords are never stored or logged
+- **SSL Certificate Handling:** Properly configured for FDM self-signed certificates
+
+## Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on:
+
+- How to report bugs
+- How to suggest enhancements
+- Development setup and workflow
+- Code style guidelines
+- Pull request process
+
+### Quick Start for Contributors
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Make your changes
+5. Run tests: `python -m pytest` (when available)
+6. Submit a pull request
+
+## Testing
+
+The project includes automated testing via GitHub Actions:
+
+- **CI Tests:** Runs on Python 3.8, 3.9, 3.10, 3.11
+- **Code Quality:** Automated linting with flake8 and formatting with black
+- **Security Analysis:** CodeQL static analysis for security vulnerabilities
+- **Dependency Scanning:** Automated vulnerability detection in dependencies
 
 ## Requirements
 
-- Python 3.6+
-- requests library
-- urllib3 library
-- Cisco FDM 7.2+ (tested versions)
-- Network access to FDM management interface
+### System Requirements
+- **Python:** 3.8 or higher
+- **Operating System:** Windows, macOS, or Linux
+- **Network:** Connectivity to FDM management interface
+
+### Python Dependencies
+- **requests:** HTTP library for API communication
+- **urllib3:** HTTP client library (for SSL handling)
+
+### Cisco FDM Requirements
+- **Version:** Cisco FDM 7.2+ (tested versions)
+- **Access:** Valid user credentials with object creation permissions
+- **Network:** HTTPS access to FDM management interface (typically port 443)
+
+### Installation Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## Development Requirements
+
+For contributors and developers:
+
+```bash
+pip install pytest flake8 black  # Development tools
+```
 
 ## Author(s)
 
